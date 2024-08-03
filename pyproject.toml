@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "hexlet-code"
+version = "0.1.0"
+description = "Difference calculator"
+authors = ["Aleksey_Kuznetsov <aleksejkuznecov07096@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/Mirroel-Alvares/python-project-50/tree/main"
+classifiers = [
+  'Development Status :: 1 - In development',
+  'Environment :: Console',
+  'Intended Audience :: End Users/Desktop',
+  'Intended Audience :: Education',
+  'License :: Free For Educational Use',
+  'Natural Language :: English',
+  'Operating System :: Microsoft',
+  'Operating System :: Unix',
+  'Programming Language :: Python :: 3.10',
+  'Topic :: Software Development '
+]
+packages = [
+  { include = "gendiff" },
+]
+
+[tool.poetry.scripts]
+gendiff = "gendiff.scripts.gendiff:main"
+#brain-games = "brain_games.scripts.brain_games:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
