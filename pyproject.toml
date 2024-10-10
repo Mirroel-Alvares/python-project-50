@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hexlet-code"
-version = "0.1.0"
+version = "0.1.2"
 description = "Difference calculator"
 authors = ["Aleksey_Kuznetsov <aleksejkuznecov07096@gmail.com>"]
 readme = "README.md"
@@ -23,7 +23,6 @@ packages = [
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
-#brain-games = "brain_games.scripts.brain_games:main"
 
 [tool.poetry.dependencies]
 python = "^3.10"
