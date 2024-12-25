@@ -18,13 +18,27 @@ gendiff:
 
 publish:
 	poetry publish  --dry-run
-#
-# install-games: # Для установки пакета из операционной системы используйте команду
-# 	python3 -m pip install --user dist/*.whl.
-#
-# lint:
-# 	poetry run flake8 brain_games
-#
+
+# Запуск линтера
+lint:
+	poetry run flake8 gendiff
+
+# Запуск тестов
+tests:
+	poetry run pytest -vv
+
+# Запуск тестов с покрытием
+test-coverage:
+	poetry run pytest --cov=gendiff --cov-report xml tests
+
+# Проверка зависимостей
+selfcheck:
+	poetry check
+
+# Общая проверка
+check: selfcheck lint tests
+
+
 asciinema start:
 	asciinema rec demo.cast
 
@@ -33,3 +47,5 @@ asciinema overwrite:
 
 upload:
 	asciinema upload demo.cast
+
+# cd /mnt/c/Users/mirroel/PycharmProjects/MirroelpythonProject/python-project-50/
