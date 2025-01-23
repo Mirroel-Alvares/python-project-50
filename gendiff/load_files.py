@@ -43,4 +43,3 @@ def load_files(file_path):
             f"Unsupported file format: {extension}"
             "Expected '.yaml', '.yml' or '.json'."
         )
-
