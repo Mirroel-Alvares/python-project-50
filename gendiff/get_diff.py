@@ -1,51 +1,45 @@
 def get_diff(file1, file2):
     all_keys = sorted(set(file1.keys()).union(set(file2.keys())))
     result = []
-    has_diff = False
 
     for key in all_keys:
         value1 = file1.get(key)
         value2 = file2.get(key)
 
-        if isinstance(value1, bool):
-            value1 = str(value1).lower()
-        if isinstance(value2, bool):
-            value2 = str(value2).lower()
+        if isinstance(value1, dict) and isinstance(value2, dict):
+            result.append({
+                'key': key,
+                'value': get_diff(value1, value2),
+                'status': 'nested'
+            })
 
-        if value1 is not None and value2 is not None:
-            if value1 != value2:
-                result.append(f"  - {key}: {value1}")
-                result.append(f"  + {key}: {value2}")
-                has_diff = True
+        else:
+            if key not in file1:
+                result.append({
+                    'key': key,
+                    'value': value2,
+                    'status': 'added'
+                })
+
+            elif key not in file2:
+                result.append({
+                    'key': key,
+                    'value': value1,
+                    'status': 'deleted'
+                })
+
+            elif value1 != value2:
+                result.append({
+                    'key': key,
+                    'old_value': value1,
+                    'new_value': value2,
+                    'status': 'changed'
+                })
             else:
-                result.append(f"    {key}: {value1}")
-        elif value1 is not None:
-            result.append(f"  - {key}: {value1}")
-            has_diff = True
-        elif value2 is not None:
-            result.append(f"  + {key}: {value2}")
-            has_diff = True
+                result.append({
+                    'key': key,
+                    'value': value1,
+                    'status': 'unchanged'
+                })
 
-    return "{\n" + "\n".join(result) + "\n}\n"
-
-
-# def get_diff(file1, file2):
-#     all_keys = sorted(set(file1.keys()).union(set(file2.keys())))
-#     result = []
-#
-#     for key in all_keys:
-#         value1 = file1.get(key)
-#         value2 = file2.get(key)
-#
-#         if value1 is not None and value2 is not None:
-#             if value1 != value2:
-#                 result.append(f"- {key}: {value1}")
-#                 result.append(f"+ {key}: {value2}")
-#             else:
-#                 result.append(f"  {key}: {value1}")
-#         elif value1 is not None:
-#             result.append(f"- {key}: {value1}")
-#         elif value2 is not None:
-#             result.append(f"+ {key}: {value2}")
-#
-#     return "{\n" + "\n".join(result) + "\n}"
+    return result

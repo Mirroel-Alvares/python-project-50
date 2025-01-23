@@ -5,9 +5,11 @@ from gendiff.generate_diff import generate_diff
 
 
 def main():
-    first_file, second_file = cli_parser()
-    print(generate_diff(first_file,
-                        second_file)
+    args = cli_parser()
+    formatter = args.format
+    print(generate_diff(args.first_file,
+                        args.second_file,
+                        formatter)
           )
 
 

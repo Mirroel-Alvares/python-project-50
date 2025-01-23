@@ -12,7 +12,7 @@ def cli_parser():
     parser.add_argument(
         '-v', '--version',
         action='version',
-        version='%(prog)s 1.0')
+        version='%(prog)s 10.0')
     parser.add_argument(
         '-f', '--format',
         metavar='[type]',
@@ -21,7 +21,4 @@ def cli_parser():
         help='output format (default: "stylish")'
     )
 
-    args = parser.parse_args()
-    print(args.first_file, args.second_file)
-
-    return args.first_file, args.second_file
+    return parser.parse_args()
