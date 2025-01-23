@@ -10,7 +10,9 @@ def gen_stylish_format(diff, sep=' ', sep_count=4, depth=0):
         if status == 'nested':
             result_string += (
                 f'{depth * sep}{key}:'
-                f' {gen_stylish_format(value["value"], sep, sep_count, depth)}\n'
+                f' {gen_stylish_format(
+                    value["value"], sep, sep_count, depth
+                )}\n'
             ).rstrip() + '\n'
 
         elif status == 'added':
