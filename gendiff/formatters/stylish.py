@@ -8,11 +8,12 @@ def gen_stylish_format(diff, sep=' ', sep_count=4, depth=0):
         status = value.get('status')
 
         if status == 'nested':
+            formatted_value = gen_stylish_format(
+                value["value"], sep, sep_count, depth
+            )
             result_string += (
                 f'{depth * sep}{key}:'
-                f' {gen_stylish_format(
-                    value["value"], sep, sep_count, depth
-                )}\n'
+                f' {formatted_value}\n'
             ).rstrip() + '\n'
 
         elif status == 'added':
