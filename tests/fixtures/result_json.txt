@@ -43,7 +43,7 @@
                         "value": [
                             {
                                 "key": "wow",
-                                "old_value": "",
+                                "old_value": 1,
                                 "new_value": "so much",
                                 "status": "changed"
                             }

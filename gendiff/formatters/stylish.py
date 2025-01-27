@@ -14,35 +14,35 @@ def gen_stylish_format(diff, sep=' ', sep_count=4, depth=0):
             result_string += (
                 f'{depth * sep}{key}:'
                 f' {formatted_value}\n'
-            ).rstrip() + '\n'
+            )
 
         elif status == 'added':
             result_string += (
                 f'{(depth - 2) * sep}+ {key}:'
                 f' {to_str(value["value"], depth, sep_count, sep)}\n'
-            ).rstrip() + '\n'
+            )
 
         elif status == 'deleted':
             result_string += (
                 f'{(depth - 2) * sep}- {key}:'
                 f' {to_str(value["value"], depth, sep_count, sep)}\n'
-            ).rstrip() + '\n'
+            )
 
         elif status == 'changed':
             result_string += (
                 f'{(depth - 2) * sep}- {key}:'
                 f' {to_str(value["old_value"], depth, sep_count, sep)}\n'
-            ).rstrip() + '\n'
+            )
             result_string += (
                 f'{(depth - 2) * sep}+ {key}:'
                 f' {to_str(value["new_value"], depth, sep_count, sep)}\n'
-            ).rstrip() + '\n'
+            )
 
         elif status == 'unchanged':
             result_string += (
                 f'{depth * sep}{key}:'
                 f' {to_str(value["value"], depth, sep_count, sep)}\n'
-            ).rstrip() + '\n'
+            )
 
     result_string += f'{initial_depth * sep}}}'
     return result_string
