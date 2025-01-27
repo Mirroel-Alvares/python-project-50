@@ -76,7 +76,7 @@ def test_unsupported_file_extension():
     with pytest.raises(
             ValueError,
             match=(
-                    f"Unsupported file format: .some_extension"
+                    "Unsupported file format: .some_extension "
                     "Expected '.yaml', '.yml' or '.json'."
             )
     ):
@@ -87,7 +87,7 @@ def test_unsupported_formatter():
     with pytest.raises(
             ValueError,
             match=(
-                    f"Unsupported format: Some_formatter. "
+                    "Unsupported format: Some_formatter. "
                     "Expected 'json', 'stylish', or 'plain'"
             )
         ):

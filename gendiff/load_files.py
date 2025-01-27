@@ -40,6 +40,6 @@ def load_files(file_path):
         return load_yaml(file_path)
     else:
         raise ValueError(
-            f"Unsupported file format: {extension}"
+            f"Unsupported file format: {extension} "
             "Expected '.yaml', '.yml' or '.json'."
         )
