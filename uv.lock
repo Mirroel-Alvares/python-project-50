@@ -101,21 +101,27 @@ wheels = [
 name = "hexlet-code"
 version = "0.3.1"
 source = { editable = "." }
+dependencies = [
+    { name = "flake8" },
+    { name = "pytest" },
+    { name = "pyyaml" },
+]
 
 [package.dev-dependencies]
 dev-dependencies = [
-    { name = "flake8" },
-    { name = "pytest" },
     { name = "pytest-cov" },
     { name = "pyyaml" },
 ]
 
 [package.metadata]
+requires-dist = [
+    { name = "flake8", specifier = ">=7.1.1" },
+    { name = "pytest", specifier = ">=8.3.4" },
+    { name = "pyyaml", specifier = ">=6.0.2" },
+]
 
 [package.metadata.requires-dev]
 dev-dependencies = [
-    { name = "flake8", specifier = ">=7.1.1" },
-    { name = "pytest", specifier = ">=8.3.4" },
     { name = "pytest-cov", specifier = ">=5.0.0" },
     { name = "pyyaml", specifier = ">=6.0.2" },
 ]
