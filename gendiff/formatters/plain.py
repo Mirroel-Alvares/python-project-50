@@ -1,5 +1,5 @@
 def gen_plain_format(diff, path=''):
-    result_string = ''
+    result_strings = []
 
     for value in diff:
         key = value['key']
@@ -7,28 +7,27 @@ def gen_plain_format(diff, path=''):
         new_path = f"{path}.{key}" if path else key
 
         if status == 'nested':
-            result_string += gen_plain_format(value['value'], new_path)
+            result_strings.append(gen_plain_format(value['value'], new_path))
 
         elif status == 'added':
-            result_string += (
+            result_strings.append(
                 f"Property '{new_path}' was added with value: "
-                f"{to_str(value['value'])}\n"
+                f"{to_str(value['value'])}"
             )
 
         elif status == 'deleted':
-            result_string += (
-                f"Property '{new_path}' was removed\n"
+            result_strings.append(
+                f"Property '{new_path}' was removed"
             )
 
         elif status == 'changed':
-            result_string += (
-                f"Property '{new_path}' was updated."
-                f" From {to_str(value['old_value'])} "
-                f"to {to_str(value['new_value'])}\n"
+            result_strings.append(
+                f"Property '{new_path}' was updated. "
+                f"From {to_str(value['old_value'])} "
+                f"to {to_str(value['new_value'])}"
             )
 
-    return result_string
-
+    return '\n'.join(result_strings)
 
 def to_str(value):
     if isinstance(value, dict) or isinstance(value, list):
