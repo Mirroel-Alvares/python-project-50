@@ -29,6 +29,7 @@ def gen_plain_format(diff, path=''):
 
     return '\n'.join(result_strings)
 
+
 def to_str(value):
     if isinstance(value, dict) or isinstance(value, list):
         return '[complex value]'
