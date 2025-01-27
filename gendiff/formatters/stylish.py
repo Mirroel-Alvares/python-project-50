@@ -75,6 +75,4 @@ def to_str(value, depth, sep_count, sep):
         return 'true'
     elif value is False:
         return 'false'
-    elif value == "":
-        return ""
     return value

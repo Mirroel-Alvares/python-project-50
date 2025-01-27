@@ -3,6 +3,7 @@
 
 [![test-check](https://github.com/Mirroel-Alvares/python-project-50/actions/workflows/test-check.yml/badge.svg)](https://github.com/Mirroel-Alvares/python-project-50/actions/workflows/test-check.yml)
 
+Maintainability and Test Coverage status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/2bc1f65d3b5a5545576a/maintainability)](https://codeclimate.com/github/Mirroel-Alvares/python-project-50/maintainability)
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2bc1f65d3b5a5545576a/test_coverage)](https://codeclimate.com/github/Mirroel-Alvares/python-project-50/test_coverage)
