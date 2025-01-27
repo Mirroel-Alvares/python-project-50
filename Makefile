@@ -25,5 +25,8 @@ lint:
 test:
 	uv run pytest
 
+test-coverage:
+	poetry run pytest --cov=gendiff --cov-report xml
+
 tests:
 	uv run pytest -vv
